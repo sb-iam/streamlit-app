@@ -3,7 +3,7 @@
   "requirement_hours_per_year": 20,
   "records": [
     {
-      "person": "Sunny Patel",
+      "person": "Avery Patel",
       "hours_completed_2025": 32,
       "status": "compliant",
       "courses": ["CSQM 1 Implementation (8h)", "Tax Update (12h)", "Ethics (4h)", "CSRS 4200 (8h)"]
