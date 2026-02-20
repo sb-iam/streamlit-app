@@ -95,12 +95,12 @@ pyyaml>=6.0
 
 ```json
 {
-  "firm_name": "Sunny Professional Corporation",
+  "firm_name": "Avery Professional Corporation",
   "license_number": "CPA-ON-2019-4472",
   "jurisdiction": "CPA Ontario",
   "partners": [
     {
-      "name": "Sunny Patel",
+      "name": "Avery Patel",
       "role": "Managing Partner",
       "cpa_number": "ON-112847",
       "admitted": "2012-06-15"
@@ -167,7 +167,7 @@ pyyaml>=6.0
   "document_type": "independence_declarations",
   "declarations": [
     {
-      "person": "Sunny Patel",
+      "person": "Avery Patel",
       "signed": true,
       "date_signed": "2025-04-01",
       "period_covered": "2025-04-01 to 2026-03-31",
@@ -215,7 +215,7 @@ pyyaml>=6.0
   "requirement_hours_per_year": 20,
   "records": [
     {
-      "person": "Sunny Patel",
+      "person": "Avery Patel",
       "hours_completed_2025": 32,
       "status": "compliant",
       "courses": ["CSQM 1 Implementation (8h)", "Tax Update (12h)", "Ethics (4h)", "CSRS 4200 (8h)"]
@@ -257,7 +257,7 @@ pyyaml>=6.0
   "annual_file_monitoring": {
     "performed": true,
     "date_performed": "2025-06-15",
-    "performed_by": "Sunny Patel",
+    "performed_by": "Avery Patel",
     "files_reviewed": ["ABC Manufacturing 2024", "GHI Retail 2024"],
     "findings": [
       {
@@ -293,7 +293,7 @@ pyyaml>=6.0
     {
       "period": "2024",
       "date_performed": "2024-12-01",
-      "performed_by": "Sunny Patel",
+      "performed_by": "Avery Patel",
       "conclusion": "SoQM operating effectively with minor improvements needed",
       "considered_monitoring_results": true,
       "considered_external_inspections": true,
@@ -359,7 +359,7 @@ pyyaml>=6.0
 {
   "document_type": "governance_policies",
   "tone_at_top_policy": true,
-  "quality_responsibility_assigned_to": "Sunny Patel",
+  "quality_responsibility_assigned_to": "Avery Patel",
   "quality_in_performance_reviews": true,
   "strategic_quality_review_documented": true,
   "commercial_override_policy": true,
@@ -391,7 +391,7 @@ pyyaml>=6.0
   "last_updated": "2025-04-01",
   "entries": [
     {
-      "conflict": "Sunny Patel's spouse employed by ABC Manufacturing",
+      "conflict": "Avery Patel's spouse employed by ABC Manufacturing",
       "threat_type": "familiarity",
       "safeguard": "Priya Sharma assigned as engagement partner for ABC Manufacturing",
       "documented": true,
@@ -424,7 +424,7 @@ pyyaml>=6.0
       "policy": "SoQM Manual v2.1",
       "date_distributed": "2024-01-20",
       "method": "email",
-      "acknowledged_by": ["Sunny Patel", "Priya Sharma", "Marcus Chen", "Aisha Okonkwo"],
+      "acknowledged_by": ["Avery Patel", "Priya Sharma", "Marcus Chen", "Aisha Okonkwo"],
       "missing_acknowledgment": ["Tyler Robinson"],
       "issue": "Tyler Robinson (hired Sep 2025) has not received or acknowledged the SoQM manual."
     }
@@ -465,7 +465,7 @@ pyyaml>=6.0
     "independence": {
       "assessment_documented": true,
       "threats_evaluated": true,
-      "safeguards_applied": "Priya Sharma as EP due to Sunny conflict",
+      "safeguards_applied": "Priya Sharma as EP due to Avery conflict",
       "declaration_on_file": true,
       "status": "ok"
     },
@@ -528,7 +528,7 @@ pyyaml>=6.0
   "engagement_type": "compilation",
   "standard": "CSRS 4200",
   "fiscal_year_end": "2025-09-30",
-  "engagement_partner": "Sunny Patel",
+  "engagement_partner": "Avery Patel",
   "prepared_by": "Aisha Okonkwo",
   "checks": {
     "engagement_letter": {
@@ -735,7 +735,7 @@ This is the BAD file with multiple issues — the demo showpiece.
   "engagement_type": "review",
   "standard": "CSRE 2400",
   "fiscal_year_end": "2025-12-31",
-  "engagement_partner": "Sunny Patel",
+  "engagement_partner": "Avery Patel",
   "prepared_by": "Marcus Chen",
   "checks": {
     "engagement_letter": {
@@ -1089,7 +1089,7 @@ else:
 
 ### Key Demo Flow
 
-When showing to a CPA client (like Sunny), the flow should be:
+When showing to a CPA client (like Avery), the flow should be:
 
 1. Open app → Dashboard shows 78% readiness with 4 critical gaps
 2. Click into Firm-Level → See that SoQM evaluation is overdue, monitoring has independence issue
@@ -1127,4 +1127,4 @@ This demo is for showing to CPA firm partners during customer discovery intervie
 - "The inspector will flag..." not "rule violation detected"
 - "Fix this before inspection" not "remediate deficiency"
 
-The goal is for Sunny to look at this and say "YES, this is exactly what I need before my next inspection."
+The goal is for Avery to look at this and say "YES, this is exactly what I need before my next inspection."
