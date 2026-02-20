@@ -1,0 +1,15 @@
+{
+  "document_type": "conflict_register",
+  "exists": true,
+  "last_updated": "2025-04-01",
+  "entries": [
+    {
+      "conflict": "Sunny Patel's spouse employed by ABC Manufacturing",
+      "threat_type": "familiarity",
+      "safeguard": "Priya Sharma assigned as engagement partner for ABC Manufacturing",
+      "documented": true,
+      "status": "ok"
+    }
+  ],
+  "status": "ok"
+}

@@ -1,0 +1,111 @@
+{
+  "file_id": "FILE-003",
+  "client_name": "123 Restaurant Inc",
+  "engagement_type": "compilation",
+  "standard": "CSRS 4200",
+  "fiscal_year_end": "2025-08-31",
+  "engagement_partner": "Priya Sharma",
+  "prepared_by": "Aisha Okonkwo",
+  "checks": {
+    "engagement_letter": {
+      "exists": true,
+      "signed_by_client": true,
+      "signed_by_firm": true,
+      "date_signed": "2025-11-20",
+      "work_start_date": "2025-10-15",
+      "references_csrs_4200": false,
+      "describes_mgmt_responsibilities": true,
+      "describes_accountant_responsibilities": true,
+      "states_no_assurance": true,
+      "identifies_framework": "ASPE",
+      "status": "critical",
+      "issues": [
+        "Engagement letter dated 2025-11-20 but work started 2025-10-15 — letter is BACKDATED (signed after work began)",
+        "Letter does not reference CSRS 4200 — uses old language"
+      ]
+    },
+    "independence": {
+      "assessment_documented": true,
+      "threats_evaluated": true,
+      "safeguards_applied": null,
+      "declaration_on_file": true,
+      "status": "warning",
+      "issue": "Priya Sharma's independence declaration was signed 2025-11-03 but engagement letter for this client is dated 2025-10-15. Declaration was not in effect when work started."
+    },
+    "knowledge_of_client": {
+      "industry_understanding": true,
+      "framework_understanding": true,
+      "documented": true,
+      "status": "ok"
+    },
+    "compilation_procedures": {
+      "data_accumulated": true,
+      "data_classified": true,
+      "statements_read_for_errors": true,
+      "misleading_considered": false,
+      "adjustments_documented": true,
+      "working_papers_present": true,
+      "status": "warning",
+      "issue": "No documentation that accountant considered whether compiled statements might be misleading. Cash-heavy restaurant — heightened risk."
+    },
+    "financial_statements": {
+      "framework_compliant": true,
+      "basis_of_accounting_note": false,
+      "required_disclosures_present": true,
+      "comparatives_correct": true,
+      "notes_tie_to_statements": true,
+      "status": "critical",
+      "issue": "MISSING basis of accounting note. CSRS 4200 requires a note describing the applicable financial reporting framework. This is the #3 most common deficiency found in CPA practice inspections."
+    },
+    "report": {
+      "correct_standard_wording": false,
+      "uses_csrs_4200_format": false,
+      "not_old_section_9200": false,
+      "addressed_appropriately": true,
+      "dated": "2025-12-01",
+      "signed": true,
+      "independence_impairment_disclosed": false,
+      "basis_described": false,
+      "status": "critical",
+      "issue": "Report still uses old Section 9200 'Notice to Reader' wording. Must be updated to CSRS 4200 compilation report format. This is the #1 most common deficiency in practice inspections."
+    },
+    "file_assembly": {
+      "assembled_within_60_days": true,
+      "assembly_date": "2026-01-15",
+      "report_date": "2025-12-01",
+      "days_elapsed": 45,
+      "no_post_assembly_changes": true,
+      "status": "ok"
+    }
+  },
+  "overall_status": "fail",
+  "assertions_passed": 3,
+  "assertions_total": 7,
+  "issues": [
+    {
+      "severity": "critical",
+      "component": "engagement_letter",
+      "description": "Letter dated after work started (backdated) and does not reference CSRS 4200"
+    },
+    {
+      "severity": "warning",
+      "component": "independence",
+      "description": "Partner independence declaration not in effect when engagement work began"
+    },
+    {
+      "severity": "warning",
+      "component": "compilation_procedures",
+      "description": "No consideration of whether statements might be misleading for cash-heavy business"
+    },
+    {
+      "severity": "critical",
+      "component": "financial_statements",
+      "description": "Missing basis of accounting note (CSRS 4200 requirement)"
+    },
+    {
+      "severity": "critical",
+      "component": "report",
+      "description": "Still using old Section 9200 Notice to Reader — must use CSRS 4200 format"
+    }
+  ]
+}

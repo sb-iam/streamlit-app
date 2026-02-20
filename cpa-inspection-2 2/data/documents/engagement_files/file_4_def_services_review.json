@@ -1,0 +1,85 @@
+{
+  "file_id": "FILE-004",
+  "client_name": "DEF Services Corp",
+  "engagement_type": "review",
+  "standard": "CSRE 2400",
+  "fiscal_year_end": "2025-12-31",
+  "engagement_partner": "Sunny Patel",
+  "prepared_by": "Marcus Chen",
+  "checks": {
+    "engagement_letter": {
+      "exists": true,
+      "signed_by_client": true,
+      "signed_by_firm": true,
+      "date_signed": "2026-01-10",
+      "work_start_date": "2026-01-12",
+      "references_standard": true,
+      "describes_mgmt_responsibilities": true,
+      "describes_accountant_responsibilities": true,
+      "states_limited_assurance": true,
+      "identifies_framework": "ASPE",
+      "status": "ok"
+    },
+    "independence": {
+      "assessment_documented": true,
+      "threats_evaluated": true,
+      "safeguards_applied": null,
+      "declaration_on_file": true,
+      "status": "ok"
+    },
+    "analytical_procedures": {
+      "performed": true,
+      "documented": true,
+      "areas_of_risk_identified": true,
+      "explanations_obtained": true,
+      "status": "ok"
+    },
+    "inquiries_of_management": {
+      "performed": true,
+      "documented": true,
+      "status": "ok"
+    },
+    "management_representation_letter": {
+      "obtained": true,
+      "signed": true,
+      "dated": "2026-02-05",
+      "status": "ok"
+    },
+    "financial_statements": {
+      "framework_compliant": true,
+      "basis_of_accounting_note": true,
+      "required_disclosures_present": true,
+      "comparatives_correct": true,
+      "notes_tie_to_statements": true,
+      "status": "ok"
+    },
+    "report": {
+      "correct_standard_wording": true,
+      "uses_csre_2400_format": true,
+      "addressed_appropriately": true,
+      "dated": "2026-02-08",
+      "signed": true,
+      "basis_described": true,
+      "status": "ok"
+    },
+    "file_assembly": {
+      "assembled_within_60_days": false,
+      "assembly_date": null,
+      "report_date": "2026-02-08",
+      "days_elapsed": null,
+      "no_post_assembly_changes": null,
+      "status": "pending",
+      "issue": "File assembly not yet completed. 60-day deadline is 2026-04-09. Currently within deadline but should be assembled soon."
+    }
+  },
+  "overall_status": "pass",
+  "assertions_passed": 7,
+  "assertions_total": 8,
+  "issues": [
+    {
+      "severity": "info",
+      "component": "file_assembly",
+      "description": "File assembly pending — deadline 2026-04-09 (within time limit)"
+    }
+  ]
+}

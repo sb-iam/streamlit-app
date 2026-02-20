@@ -1,0 +1,39 @@
+{
+  "document_type": "remediation_log",
+  "entries": [
+    {
+      "id": 1,
+      "source": "2023 Practice Inspection",
+      "deficiency": "Engagement letters not consistently referencing CSRS 4200",
+      "date_identified": "2023-06-15",
+      "root_cause": "Old template still in use",
+      "corrective_action": "Updated engagement letter template to reference CSRS 4200",
+      "action_date": "2023-07-01",
+      "followup_verified": true,
+      "status": "closed"
+    },
+    {
+      "id": 2,
+      "source": "2025 Annual File Monitoring",
+      "deficiency": "GHI Retail file missing signed engagement letter",
+      "date_identified": "2025-06-15",
+      "root_cause": "Staff forgot to obtain signature before starting work",
+      "corrective_action": "Letter signed and added to file. Reminder added to onboarding checklist.",
+      "action_date": "2025-07-01",
+      "followup_verified": true,
+      "status": "closed"
+    },
+    {
+      "id": 3,
+      "source": "2025 Completed Engagement Monitoring",
+      "deficiency": "Reviewer was not independent of files reviewed",
+      "date_identified": "2025-08-20",
+      "root_cause": null,
+      "corrective_action": null,
+      "action_date": null,
+      "followup_verified": false,
+      "status": "open",
+      "issue": "Deficiency identified but no corrective action documented. No root cause analysis. This will be flagged by inspector."
+    }
+  ]
+}

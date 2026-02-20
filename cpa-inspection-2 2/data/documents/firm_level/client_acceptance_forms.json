@@ -1,0 +1,9 @@
+{
+  "document_type": "client_acceptance_forms",
+  "forms": [
+    {"client": "ABC Manufacturing Ltd", "form_exists": true, "risk_assessment": true, "competence_eval": true, "integrity_eval": true, "aml_check": true, "status": "ok"},
+    {"client": "XYZ Holdings Ltd", "form_exists": true, "risk_assessment": true, "competence_eval": true, "integrity_eval": true, "aml_check": true, "status": "ok"},
+    {"client": "123 Restaurant Inc", "form_exists": true, "risk_assessment": true, "competence_eval": true, "integrity_eval": false, "aml_check": true, "status": "warning", "issue": "Client integrity evaluation not documented. Cash-heavy business — should have enhanced assessment."},
+    {"client": "DEF Services Corp", "form_exists": true, "risk_assessment": true, "competence_eval": true, "integrity_eval": true, "aml_check": true, "status": "ok"}
+  ]
+}

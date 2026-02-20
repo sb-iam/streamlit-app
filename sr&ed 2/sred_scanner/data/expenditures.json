@@ -1,0 +1,75 @@
+{
+  "method": "proxy",
+  "fiscal_year": "2024",
+  "ympe_2024": 68500,
+  "salaries": {
+    "line_300_total_salary_expenditures": 730000,
+    "breakdown": [
+      {"name": "Dr. Anika Patel", "total_salary": 145000, "sred_portion": 112778, "project_allocation": {"P001": 96667, "P002": 16111}, "specified_employee": false, "paid_within_180_days": true},
+      {"name": "James Wu", "total_salary": 112000, "sred_portion": 59111, "project_allocation": {"P001": 59111}, "specified_employee": false, "paid_within_180_days": true},
+      {"name": "Carlos Mendes", "total_salary": 128000, "sred_portion": 99556, "project_allocation": {"P002": 99556}, "specified_employee": false, "paid_within_180_days": true},
+      {"name": "Sarah Kim", "total_salary": 105000, "sred_portion": 23333, "project_allocation": {"P002": 23333}, "specified_employee": false, "paid_within_180_days": true},
+      {"name": "Raj Gupta", "total_salary": 118000, "sred_portion": 52444, "project_allocation": {"P003": 52444}, "specified_employee": true, "ownership_percentage": 15, "paid_within_180_days": true},
+      {"name": "Emily Chen", "total_salary": 95000, "sred_portion": 31667, "project_allocation": {"P003": 31667}, "specified_employee": false, "paid_within_180_days": true}
+    ],
+    "total_sred_salaries": 378889,
+    "specified_employee_salary_included": 52444
+  },
+  "materials": {
+    "line_360_total": 18700,
+    "items": [
+      {"description": "IoT sensor evaluation boards (ARM Cortex-M4 x 24)", "amount": 8400, "project": "P001", "consumed_or_transformed": "consumed", "eligible": true},
+      {"description": "Cloud compute credits (GCP) for GNN training", "amount": 6800, "project": "P002", "consumed_or_transformed": "consumed", "eligible": true},
+      {"description": "Office supplies and printer cartridges", "amount": 1200, "project": "GENERAL", "consumed_or_transformed": "neither", "eligible": false, "flag_reason": "Office supplies are not consumed or transformed by SR&ED. Ineligible under ITA 37(1)(a)(ii)."},
+      {"description": "USB cables and adapters for test rigs", "amount": 2300, "project": "P001", "consumed_or_transformed": "consumed", "eligible": true}
+    ]
+  },
+  "contracts": {
+    "line_370_total": 117000,
+    "items": [
+      {"payee": "Fatima Al-Rashidi (sole proprietor)", "amount": 72000, "project": "P001", "arms_length": true, "for_sred": true, "contract_specifies_sred": true, "eligible": true, "itc_eligible_amount": 57600, "itc_note": "Arms-length contract: 100% deductible, 80% qualifies for ITC"},
+      {"payee": "TechBridge Ltd.", "amount": 45000, "project": "P003", "arms_length": true, "for_sred": false, "contract_specifies_sred": false, "eligible": false, "flag_reason": "Contract does not specify SR&ED work. Project P003 is ineligible. Contract language references 'migration services' not 'experimental development'. Ineligible under ITA 37(1)(a)(i)."}
+    ]
+  },
+  "overhead": {
+    "method": "proxy",
+    "proxy_base_salaries": 326445,
+    "proxy_rate": 0.55,
+    "proxy_amount": 179545,
+    "note": "Proxy method: 55% of salary base (excluding specified employees for PPA). Not deductible but earns ITC. Specified employee Raj Gupta salary excluded from PPA base per ITA 37(9.1)."
+  },
+  "deliberate_errors": [
+    {
+      "error_id": "EXP-001",
+      "category": "materials",
+      "description": "Office supplies ($1,200) claimed as SR&ED materials",
+      "severity": "MEDIUM",
+      "rule": "Materials must be consumed or transformed by SR&ED. Office supplies are neither. CRA Policy: Materials for SR&ED (2024-01-23), Section 3.2.",
+      "remediation": "Remove $1,200 from materials claim. Reduces qualified expenditures."
+    },
+    {
+      "error_id": "EXP-002",
+      "category": "contracts",
+      "description": "TechBridge Ltd. contract ($45,000) on ineligible project P003",
+      "severity": "HIGH",
+      "rule": "Project P003 fails all five questions of the eligibility test. No expenditures on this project qualify. CRA Filing Requirements Policy (2025-01-28).",
+      "remediation": "Remove entire P003 from claim. Reduces qualified expenditures by $129,111 (salaries $84,111 + contract $45,000)."
+    },
+    {
+      "error_id": "EXP-003",
+      "category": "contracts",
+      "description": "TechBridge contract language does not specify SR&ED",
+      "severity": "HIGH",
+      "rule": "Contract must specify that work is SR&ED for expenditure to qualify. CRA Contract Expenditures for SR&ED Policy, Section 4.1.",
+      "remediation": "Even if project were eligible, contract would need amendment to specify SR&ED clause."
+    },
+    {
+      "error_id": "EXP-004",
+      "category": "specified_employee",
+      "description": "Raj Gupta (15% shareholder) salary not capped for PPA calculation",
+      "severity": "LOW",
+      "rule": "Specified employees (10%+ shareholders) salary capped at lesser of: (a) 75% of salary, or (b) 2.5x YMPE ($171,250 for 2024 YMPE $68,500) for PPA base. Raj salary $118,000 x 75% = $88,500 cap applies for PPA. However, since P003 is ineligible, this is moot.",
+      "remediation": "If P003 were eligible, PPA base for Raj would be $88,500 x (800/1800) = $39,333 not $52,444. Currently moot because P003 should be removed entirely."
+    }
+  ]
+}

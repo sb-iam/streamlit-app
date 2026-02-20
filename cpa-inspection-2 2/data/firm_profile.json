@@ -1,0 +1,46 @@
+{
+  "firm_name": "Sunny Professional Corporation",
+  "license_number": "CPA-ON-2019-4472",
+  "jurisdiction": "CPA Ontario",
+  "partners": [
+    {
+      "name": "Sunny Patel",
+      "role": "Managing Partner",
+      "cpa_number": "ON-112847",
+      "admitted": "2012-06-15"
+    },
+    {
+      "name": "Priya Sharma",
+      "role": "Partner",
+      "cpa_number": "ON-118923",
+      "admitted": "2015-09-01"
+    }
+  ],
+  "staff": [
+    {
+      "name": "Marcus Chen",
+      "role": "Senior Accountant",
+      "hire_date": "2021-03-15",
+      "cpa_candidate": true
+    },
+    {
+      "name": "Aisha Okonkwo",
+      "role": "Staff Accountant",
+      "hire_date": "2023-08-01",
+      "cpa_candidate": true
+    },
+    {
+      "name": "Tyler Robinson",
+      "role": "Junior Accountant",
+      "hire_date": "2025-09-10",
+      "cpa_candidate": false
+    }
+  ],
+  "office_count": 1,
+  "engagement_types": ["compilation", "review"],
+  "industries_served": ["manufacturing", "restaurants", "professional_services", "retail"],
+  "total_clients": 87,
+  "last_inspection": "2023-04-15",
+  "last_inspection_result": "Meets Requirements",
+  "next_inspection_due": "2026-04-15"
+}

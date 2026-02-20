@@ -1,0 +1,141 @@
+policy:
+  name: "CPA Practice Inspection — CSQM 1 Full"
+  jurisdiction: CPA_Canada
+  standards:
+    - CSQM1
+    - CSRS_4200
+    - CSRE_2400
+
+  firm_level_rules:
+    governance:
+      - id: GOV-01
+        description: "Tone-at-top policy documented"
+        check: governance_policies.tone_at_top_policy == true
+        severity: critical
+      - id: GOV-02
+        description: "Quality responsibility assigned to individual"
+        check: governance_policies.quality_responsibility_assigned_to != null
+        severity: critical
+      - id: GOV-03
+        description: "Strategic quality review documented"
+        check: governance_policies.strategic_quality_review_documented == true
+        severity: warning
+
+    ethics:
+      - id: ETH-01
+        description: "All personnel have signed independence declaration"
+        check: all_personnel_have_signed_declaration
+        severity: critical
+      - id: ETH-02
+        description: "Independence declarations dated before engagement work"
+        check: declaration_dates_before_engagement_dates
+        severity: critical
+      - id: ETH-03
+        description: "Conflict of interest register maintained"
+        check: conflict_register.exists == true
+        severity: warning
+
+    acceptance:
+      - id: ACC-01
+        description: "Client acceptance form exists for all inspected clients"
+        check: all_inspected_clients_have_acceptance_form
+        severity: critical
+      - id: ACC-02
+        description: "Risk assessment completed per client"
+        check: all_clients_have_risk_assessment
+        severity: critical
+      - id: ACC-03
+        description: "Client integrity evaluation documented"
+        check: all_clients_have_integrity_eval
+        severity: warning
+
+    resources:
+      - id: RES-01
+        description: "All staff CPD records current"
+        check: all_staff_cpd_compliant
+        severity: warning
+      - id: RES-02
+        description: "CPA Handbook subscription current"
+        check: soqm_manual.exists
+        severity: critical
+
+    communication:
+      - id: COM-01
+        description: "Policy distribution log maintained"
+        check: policy_distribution_log.exists
+        severity: warning
+      - id: COM-02
+        description: "All staff acknowledged receiving policies"
+        check: all_staff_acknowledged_policies
+        severity: warning
+      - id: COM-03
+        description: "Complaints procedure documented"
+        check: complaints_procedure.procedure_exists == true
+        severity: warning
+
+    monitoring:
+      - id: MON-01
+        description: "Annual file monitoring performed"
+        check: monitoring_log.annual_file_monitoring.performed == true
+        severity: critical
+      - id: MON-02
+        description: "Completed engagement monitoring performed"
+        check: monitoring_log.completed_engagement_monitoring.performed == true
+        severity: critical
+      - id: MON-03
+        description: "Monitoring reviewer independent of files reviewed"
+        check: monitoring_log.completed_engagement_monitoring.reviewer_independent == true
+        severity: critical
+      - id: MON-04
+        description: "Annual SoQM evaluation performed"
+        check: soqm_evaluation.overdue == false
+        severity: critical
+      - id: MON-05
+        description: "All remediation entries have corrective actions"
+        check: all_remediation_entries_have_actions
+        severity: critical
+      - id: MON-06
+        description: "Root cause analysis documented for all deficiencies"
+        check: all_remediation_entries_have_root_cause
+        severity: warning
+
+  engagement_file_rules:
+    compilation:
+      - id: ENG-01
+        description: "Engagement letter exists and signed by both parties"
+        check: engagement_letter.exists and engagement_letter.signed_by_client and engagement_letter.signed_by_firm
+        severity: critical
+      - id: ENG-02
+        description: "Engagement letter dated before or at start of work"
+        check: engagement_letter.date_signed <= work_start_date
+        severity: critical
+      - id: ENG-03
+        description: "Engagement letter references applicable standard"
+        check: engagement_letter.references_csrs_4200 == true
+        severity: critical
+      - id: ENG-04
+        description: "Independence assessment documented"
+        check: independence.assessment_documented == true
+        severity: critical
+      - id: ENG-05
+        description: "Financial statements include basis of accounting note"
+        check: financial_statements.basis_of_accounting_note == true
+        severity: critical
+      - id: ENG-06
+        description: "Report uses current CSRS 4200 wording (not old Section 9200)"
+        check: report.not_old_section_9200 == true
+        severity: critical
+      - id: ENG-07
+        description: "File assembled within 60 days of report date"
+        check: file_assembly.assembled_within_60_days == true
+        severity: warning
+
+    review:
+      - id: REV-01
+        description: "Analytical procedures performed and documented"
+        check: analytical_procedures.performed == true
+        severity: critical
+      - id: REV-02
+        description: "Management representation letter obtained"
+        check: management_representation_letter.obtained == true
+        severity: critical

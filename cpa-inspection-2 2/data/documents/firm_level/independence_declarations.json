@@ -1,0 +1,42 @@
+{
+  "document_type": "independence_declarations",
+  "declarations": [
+    {
+      "person": "Sunny Patel",
+      "signed": true,
+      "date_signed": "2025-04-01",
+      "period_covered": "2025-04-01 to 2026-03-31",
+      "status": "ok"
+    },
+    {
+      "person": "Priya Sharma",
+      "signed": true,
+      "date_signed": "2025-11-03",
+      "period_covered": "2025-04-01 to 2026-03-31",
+      "status": "late",
+      "issue": "Signed 7 months into the period. Engagement letter for Client #3 (123 Restaurant) was dated 2025-10-15, which is BEFORE this declaration."
+    },
+    {
+      "person": "Marcus Chen",
+      "signed": true,
+      "date_signed": "2025-04-05",
+      "period_covered": "2025-04-01 to 2026-03-31",
+      "status": "ok"
+    },
+    {
+      "person": "Aisha Okonkwo",
+      "signed": true,
+      "date_signed": "2025-04-10",
+      "period_covered": "2025-04-01 to 2026-03-31",
+      "status": "ok"
+    },
+    {
+      "person": "Tyler Robinson",
+      "signed": false,
+      "date_signed": null,
+      "period_covered": null,
+      "status": "missing",
+      "issue": "New hire Sep 2025. No independence declaration obtained."
+    }
+  ]
+}

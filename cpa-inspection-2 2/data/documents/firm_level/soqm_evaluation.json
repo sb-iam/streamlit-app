@@ -1,0 +1,20 @@
+{
+  "document_type": "soqm_evaluation",
+  "evaluations": [
+    {
+      "period": "2024",
+      "date_performed": "2024-12-01",
+      "performed_by": "Sunny Patel",
+      "conclusion": "SoQM operating effectively with minor improvements needed",
+      "considered_monitoring_results": true,
+      "considered_external_inspections": true,
+      "considered_complaints": true,
+      "documented": true,
+      "status": "ok"
+    }
+  ],
+  "latest_evaluation_date": "2024-12-01",
+  "months_since_latest": 14,
+  "overdue": true,
+  "issue": "Annual evaluation due by Dec 2025. It is now Feb 2026. 14 months since last evaluation — overdue."
+}

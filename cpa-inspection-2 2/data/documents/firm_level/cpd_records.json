@@ -1,0 +1,37 @@
+{
+  "document_type": "cpd_records",
+  "requirement_hours_per_year": 20,
+  "records": [
+    {
+      "person": "Sunny Patel",
+      "hours_completed_2025": 32,
+      "status": "compliant",
+      "courses": ["CSQM 1 Implementation (8h)", "Tax Update (12h)", "Ethics (4h)", "CSRS 4200 (8h)"]
+    },
+    {
+      "person": "Priya Sharma",
+      "hours_completed_2025": 24,
+      "status": "compliant",
+      "courses": ["Audit Quality (8h)", "Tax Update (12h)", "Ethics (4h)"]
+    },
+    {
+      "person": "Marcus Chen",
+      "hours_completed_2025": 20,
+      "status": "compliant",
+      "courses": ["CPA PEP Module (12h)", "Tax Basics (8h)"]
+    },
+    {
+      "person": "Aisha Okonkwo",
+      "hours_completed_2025": 16,
+      "status": "warning",
+      "issue": "4 hours short of 20-hour requirement. Due by Dec 31.",
+      "courses": ["CPA PEP Module (12h)", "Ethics (4h)"]
+    },
+    {
+      "person": "Tyler Robinson",
+      "hours_completed_2025": 0,
+      "status": "missing",
+      "issue": "New hire Sep 2025. No CPD plan or record established yet."
+    }
+  ]
+}

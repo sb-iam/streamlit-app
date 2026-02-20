@@ -1,0 +1,27 @@
+{
+  "company_name": "NovaTech Solutions Inc.",
+  "business_number": "123456789RC0001",
+  "fiscal_year_end": "2024-12-31",
+  "corporation_type": "CCPC",
+  "taxable_income_prior_year": 485000,
+  "taxable_capital": 8200000,
+  "associated_corps": 0,
+  "province": "Ontario",
+  "naics_code": "541514",
+  "naics_description": "Computer systems design and related services",
+  "first_time_claimant": false,
+  "contact": {
+    "name": "Priya Chakraborty",
+    "title": "VP Engineering",
+    "phone": "416-555-0142",
+    "email": "priya@novatech.example.com"
+  },
+  "preparer": {
+    "name": "Greenfield SR&ED Advisory Inc.",
+    "business_number": "987654321RC0001",
+    "contact_name": "Marcus Greenfield, CPA",
+    "billing_arrangement": 1,
+    "billing_code_meaning": "Contingency fee",
+    "fee_percentage": 25
+  }
+}

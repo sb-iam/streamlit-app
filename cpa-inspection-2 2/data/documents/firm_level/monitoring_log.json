@@ -1,0 +1,30 @@
+{
+  "document_type": "monitoring_log",
+  "annual_file_monitoring": {
+    "performed": true,
+    "date_performed": "2025-06-15",
+    "performed_by": "Sunny Patel",
+    "files_reviewed": ["ABC Manufacturing 2024", "GHI Retail 2024"],
+    "findings": [
+      {
+        "finding": "GHI Retail file missing signed engagement letter",
+        "severity": "reportable",
+        "remediated": true,
+        "remediation_date": "2025-07-01",
+        "remediation_action": "Letter signed and added to file"
+      }
+    ],
+    "status": "ok"
+  },
+  "completed_engagement_monitoring": {
+    "performed": true,
+    "date_performed": "2025-08-20",
+    "performed_by": "Marcus Chen",
+    "reviewer_independent": false,
+    "issue": "Marcus Chen prepared the GHI Retail file that was included in the review. Independence requirement NOT met. Should be an external reviewer or someone who did not work on any of the files.",
+    "files_reviewed": ["DEF Services 2024", "GHI Retail 2024"],
+    "findings": [],
+    "status": "fail_independence"
+  },
+  "soqm_evaluation": null
+}

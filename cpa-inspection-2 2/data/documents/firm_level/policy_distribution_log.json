@@ -1,0 +1,14 @@
+{
+  "document_type": "policy_distribution_log",
+  "distributions": [
+    {
+      "policy": "SoQM Manual v2.1",
+      "date_distributed": "2024-01-20",
+      "method": "email",
+      "acknowledged_by": ["Sunny Patel", "Priya Sharma", "Marcus Chen", "Aisha Okonkwo"],
+      "missing_acknowledgment": ["Tyler Robinson"],
+      "issue": "Tyler Robinson (hired Sep 2025) has not received or acknowledged the SoQM manual."
+    }
+  ],
+  "status": "warning"
+}

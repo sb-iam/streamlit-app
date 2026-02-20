@@ -1,0 +1,96 @@
+{
+  "form_version": "T661 E (24)",
+  "parts_status": {
+    "part_1_general_info": {
+      "status": "COMPLETE",
+      "lines": {
+        "010_corp_name": "NovaTech Solutions Inc.",
+        "020_bn": "123456789RC0001",
+        "030_tax_year_start": "2024-01-01",
+        "040_tax_year_end": "2024-12-31",
+        "050_first_time": "No",
+        "060_total_claim": 3,
+        "070_province": "Ontario"
+      },
+      "issues": []
+    },
+    "part_2_project_info": {
+      "status": "ISSUES_FOUND",
+      "section_a_fields": "See projects.json for per-project data",
+      "section_b_three_questions": {
+        "P001": {"line_242": "PASS", "line_244": "PASS", "line_246": "PASS"},
+        "P002": {"line_242": "PASS", "line_244": "PASS", "line_246": "CAUTION — documentation gap"},
+        "P003": {"line_242": "FAIL", "line_244": "FAIL", "line_246": "FAIL"}
+      },
+      "section_c_personnel_evidence": {
+        "P001": "COMPLETE",
+        "P002": "PARTIAL — 3-month documentation gap",
+        "P003": "INADEQUATE — no SR&ED-type records"
+      },
+      "issues": [
+        "P003 fails all three narrative questions. Must be removed from claim.",
+        "P002 has 3-month documentation gap (lines 270-276). CRA will likely request clarification.",
+        "P003 line 242 is only 55 words (limit 350). Vague, no uncertainty articulated.",
+        "P003 line 244 is only 55 words (limit 700). Describes challenges, not technological uncertainties."
+      ]
+    },
+    "part_3_expenditures": {
+      "status": "ISSUES_FOUND",
+      "section_a_method": "Proxy (Traditional not elected)",
+      "section_b_summary": {
+        "line_300_salaries": 378889,
+        "line_360_materials": 18700,
+        "line_370_contracts": 117000,
+        "line_380_total_sr_ed_expenditures": 514589
+      },
+      "issues": [
+        "Materials include $1,200 ineligible office supplies (line 360)",
+        "Contracts include $45,000 for ineligible project P003 (line 370)",
+        "Specified employee Raj Gupta salary included at full rate in PPA base"
+      ]
+    },
+    "part_4_qualified_expenditures": {
+      "status": "NOT_CALCULATED",
+      "note": "Cannot finalize until Part 3 issues resolved"
+    },
+    "part_5_ppa": {
+      "status": "ISSUES_FOUND",
+      "proxy_base_before_corrections": 326445,
+      "proxy_amount_before_corrections": 179545,
+      "issues": [
+        "PPA base includes salaries from ineligible P003. Must recalculate after removing P003."
+      ]
+    },
+    "part_6_per_project_breakdown": {
+      "status": "ISSUES_FOUND",
+      "issues": ["P003 must be removed. Per-project totals need recalculation."]
+    },
+    "part_7_statistical_info": {
+      "status": "INCOMPLETE",
+      "issues": ["Total R&D personnel count not finalized"]
+    },
+    "part_8_checklist": {
+      "status": "ISSUES_FOUND",
+      "issues": [
+        "Evidence checklist (lines 270-282) shows gaps for P002 and failures for P003"
+      ]
+    },
+    "part_9_preparer": {
+      "status": "WARNING",
+      "preparer_name": "Greenfield SR&ED Advisory Inc.",
+      "preparer_bn": "987654321RC0001",
+      "billing_arrangement_code": 1,
+      "billing_arrangement_text": "Contingency fee",
+      "fee_percentage": 25,
+      "issues": [
+        "RISK FLAG: Contingency fee arrangement (Code 1). CRA uses Part 9 data for risk scoring.",
+        "Contingency fee preparers have elevated audit rates per CRA's 2022 public warnings.",
+        "Penalty: $1,000 if Part 9 is missing, incomplete, or inaccurate (joint preparer/claimant liability)."
+      ]
+    },
+    "part_10_certification": {
+      "status": "NOT_SIGNED",
+      "issues": ["Certification cannot be completed until all issues resolved"]
+    }
+  }
+}

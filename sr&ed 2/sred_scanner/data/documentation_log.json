@@ -1,0 +1,31 @@
+{
+  "evidence_items": [
+    {"id": "DOC-001", "project": "P001", "type": "project_initiation_record", "title": "PIR-2024-001: Sensor Fusion R&D Plan", "date": "2024-01-15", "format": "PDF", "contemporaneous": true},
+    {"id": "DOC-002", "project": "P001", "type": "literature_review", "title": "Gap Analysis: Sub-3dB SNR Fusion Methods", "date": "2024-01-22", "format": "PDF", "contemporaneous": true},
+    {"id": "DOC-003", "project": "P001", "type": "lab_notebook", "title": "Confluence: SensorFusion-R&D Space", "date_range": "2024-01-15 to 2024-11-22", "entries": 342, "format": "Digital (Confluence)", "contemporaneous": true},
+    {"id": "DOC-004", "project": "P001", "type": "test_data", "title": "Experiment logs: 847 fusion experiments", "date_range": "2024-08-01 to 2024-11-15", "format": "CSV/JSON", "contemporaneous": true},
+    {"id": "DOC-005", "project": "P001", "type": "technical_report", "title": "TR-2024-SF-Final: Sensor Fusion Results", "date": "2024-11-22", "format": "PDF", "contemporaneous": true},
+    {"id": "DOC-006", "project": "P001", "type": "source_code", "title": "Git repo: novatech/sensor-fusion-rd", "date_range": "2024-01-20 to 2024-11-28", "commits": 287, "format": "Git", "contemporaneous": true},
+    {"id": "DOC-007", "project": "P001", "type": "timesheets", "title": "Harvest time entries — Patel, Wu", "date_range": "2024-01-15 to 2024-11-30", "format": "CSV export", "contemporaneous": true},
+
+    {"id": "DOC-008", "project": "P002", "type": "feasibility_report", "title": "FR-2024-002: Anomaly Detection Feasibility", "date": "2024-03-05", "format": "PDF", "contemporaneous": true},
+    {"id": "DOC-009", "project": "P002", "type": "literature_review", "title": "LR-2024-002: GNN for Cloud Anomaly Detection", "date": "2024-03-18", "format": "PDF", "contemporaneous": true},
+    {"id": "DOC-010", "project": "P002", "type": "lab_notebook", "title": "Confluence: CloudAnomaly-R&D Space", "date_range": "2024-03-01 to 2024-06-14", "entries": 89, "format": "Digital (Confluence)", "contemporaneous": true, "gap_flag": true, "gap_start": "2024-06-15", "gap_end": "2024-09-03", "gap_reason": "Team lead parental leave. No delegate assigned for documentation."},
+    {"id": "DOC-011", "project": "P002", "type": "lab_notebook", "title": "Confluence: CloudAnomaly-R&D Space (resumed)", "date_range": "2024-09-04 to 2024-12-31", "entries": 67, "format": "Digital (Confluence)", "contemporaneous": true},
+    {"id": "DOC-012", "project": "P002", "type": "source_code", "title": "Git repo: novatech/cloud-anomaly-gnn", "date_range": "2024-03-10 to 2024-12-28", "commits": 412, "format": "Git", "contemporaneous": true, "note": "Git commits continued during documentation gap — code exists but no experimental rationale recorded"},
+    {"id": "DOC-013", "project": "P002", "type": "timesheets", "title": "Harvest time entries — Mendes, Kim, Patel", "date_range": "2024-03-01 to 2024-12-31", "format": "CSV export", "contemporaneous": true},
+
+    {"id": "DOC-014", "project": "P003", "type": "project_plan", "title": "GraphQL Migration Project Plan", "date": "2024-02-05", "format": "Confluence page", "contemporaneous": true, "flag": "Standard project plan, not SR&ED PIR. No hypotheses, no uncertainty analysis."},
+    {"id": "DOC-015", "project": "P003", "type": "jira_tickets", "title": "Jira: GQLMIG epic (47 stories)", "date_range": "2024-02-01 to 2024-09-30", "format": "Jira export", "contemporaneous": true, "flag": "Standard development tickets. No experimental design or hypothesis tracking."},
+    {"id": "DOC-016", "project": "P003", "type": "timesheets", "title": "Harvest time entries — Gupta, Chen", "date_range": "2024-02-01 to 2024-09-30", "format": "CSV export", "contemporaneous": true}
+  ],
+  "t661_evidence_checklist": {
+    "line_270_lab_notebooks": {"P001": true, "P002": "partial", "P003": false},
+    "line_272_project_planning_docs": {"P001": true, "P002": true, "P003": "wrong_type"},
+    "line_274_design_docs": {"P001": true, "P002": true, "P003": false},
+    "line_276_test_protocols_data": {"P001": true, "P002": "partial", "P003": false},
+    "line_278_photographs_videos": {"P001": false, "P002": false, "P003": false},
+    "line_280_contracts_invoices": {"P001": true, "P002": true, "P003": true},
+    "line_282_other": {"P001": true, "P002": true, "P003": false}
+  }
+}

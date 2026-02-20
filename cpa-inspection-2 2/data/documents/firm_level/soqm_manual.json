@@ -1,0 +1,13 @@
+{
+  "document_type": "soqm_manual",
+  "title": "System of Quality Management Manual",
+  "version": "2.1",
+  "created_date": "2024-01-15",
+  "last_updated": "2024-01-15",
+  "author": "Clearline Consulting (external)",
+  "components_addressed": [1, 2, 3, 4, 5, 6, 7],
+  "has_quality_objectives": true,
+  "has_risk_register": true,
+  "has_response_policies": true,
+  "notes": "Written by consultant. Has not been updated since creation. Component 7 monitoring section is generic template — not customized to firm."
+}

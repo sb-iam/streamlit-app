@@ -1,0 +1,77 @@
+{
+  "file_id": "FILE-001",
+  "client_name": "ABC Manufacturing Ltd",
+  "engagement_type": "compilation",
+  "standard": "CSRS 4200",
+  "fiscal_year_end": "2025-06-30",
+  "engagement_partner": "Priya Sharma",
+  "prepared_by": "Marcus Chen",
+  "checks": {
+    "engagement_letter": {
+      "exists": true,
+      "signed_by_client": true,
+      "signed_by_firm": true,
+      "date_signed": "2025-07-05",
+      "work_start_date": "2025-07-15",
+      "references_csrs_4200": true,
+      "describes_mgmt_responsibilities": true,
+      "describes_accountant_responsibilities": true,
+      "states_no_assurance": true,
+      "identifies_framework": "ASPE",
+      "status": "ok"
+    },
+    "independence": {
+      "assessment_documented": true,
+      "threats_evaluated": true,
+      "safeguards_applied": "Priya Sharma as EP due to Sunny conflict",
+      "declaration_on_file": true,
+      "status": "ok"
+    },
+    "knowledge_of_client": {
+      "industry_understanding": true,
+      "framework_understanding": true,
+      "documented": true,
+      "status": "ok"
+    },
+    "compilation_procedures": {
+      "data_accumulated": true,
+      "data_classified": true,
+      "statements_read_for_errors": true,
+      "misleading_considered": true,
+      "adjustments_documented": true,
+      "working_papers_present": true,
+      "status": "ok"
+    },
+    "financial_statements": {
+      "framework_compliant": true,
+      "basis_of_accounting_note": true,
+      "required_disclosures_present": true,
+      "comparatives_correct": true,
+      "notes_tie_to_statements": true,
+      "status": "ok"
+    },
+    "report": {
+      "correct_standard_wording": true,
+      "uses_csrs_4200_format": true,
+      "not_old_section_9200": true,
+      "addressed_appropriately": true,
+      "dated": "2025-08-10",
+      "signed": true,
+      "independence_impairment_disclosed": false,
+      "basis_described": true,
+      "status": "ok"
+    },
+    "file_assembly": {
+      "assembled_within_60_days": true,
+      "assembly_date": "2025-09-15",
+      "report_date": "2025-08-10",
+      "days_elapsed": 36,
+      "no_post_assembly_changes": true,
+      "status": "ok"
+    }
+  },
+  "overall_status": "pass",
+  "assertions_passed": 7,
+  "assertions_total": 7,
+  "issues": []
+}

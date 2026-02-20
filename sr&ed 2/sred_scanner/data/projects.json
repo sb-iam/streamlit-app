@@ -1,0 +1,104 @@
+[
+  {
+    "project_id": "P001",
+    "title": "Adaptive Signal Processing for Noisy IoT Sensor Fusion",
+    "field_of_science_code": "2.02.01",
+    "field_of_science": "Electrical and Electronic Engineering",
+    "start_date": "2024-01-15",
+    "end_date": "2024-11-30",
+    "status": "completed",
+    "keyword_codes": ["2090", "2190"],
+    "eligibility_strength": "STRONG",
+    "line_242_scientific_technological_advancement": "This project sought to advance the capability of sensor fusion algorithms to operate reliably in environments with signal-to-noise ratios below 3dB. Existing Kalman filter approaches in the published literature (IEEE Sensors Journal, 2022; Elsevier Signal Processing, 2023) assume Gaussian noise distributions which fail in industrial IoT deployments where interference patterns are non-stationary and multi-modal. We hypothesized that a hybrid approach combining wavelet decomposition with adaptive extended Kalman filtering could maintain sensor fusion accuracy above 92% in sub-3dB SNR conditions. No known methodology in the public domain or standard industrial practice addressed this specific combination of constraints. The technological advancement sought was a generalizable signal processing architecture that could be deployed on resource-constrained edge devices (under 512KB RAM) while maintaining real-time fusion rates of 100Hz or greater.",
+    "line_242_word_count": 138,
+    "line_244_technological_uncertainty": "Three specific technological uncertainties were identified at the project outset and documented in our project initiation record (PIR-2024-001, dated January 15, 2024). First, it was unknown whether wavelet decomposition could be performed within the memory constraints of ARM Cortex-M4 processors with only 256KB available RAM after OS overhead. Standard discrete wavelet transform implementations require O(n) memory scaling that exceeded available resources for our target window sizes. Second, the interaction between adaptive EKF gain scheduling and non-stationary noise characteristics was theoretically unpredictable. Published convergence proofs for EKF assume bounded process noise covariance, which does not hold in our target environment where electromagnetic interference creates transient noise spikes 40dB above baseline. Third, we could not determine in advance whether the fused output would maintain temporal coherence across sensor modalities with different native sampling rates (accelerometer at 1kHz, temperature at 10Hz, pressure at 100Hz) when processed through a unified wavelet domain. Our systematic investigation involved: (a) developing three candidate wavelet basis functions optimized for memory-constrained environments, (b) implementing and testing four EKF gain scheduling strategies against recorded industrial noise profiles from three manufacturing facilities, (c) conducting 847 controlled experiments varying SNR from 0dB to 10dB across all sensor modality combinations. Hypotheses were formulated, tested, and recorded in our lab notebook system (Confluence space 'SensorFusion-R&D', 342 entries). Results from Phase 1 (wavelet basis selection) directly informed the experimental design of Phase 2 (EKF adaptation), demonstrating the iterative, hypothesis-driven nature of the investigation. The technological uncertainties were resolved through this systematic process, though two secondary uncertainties regarding long-term drift compensation remain open for future work.",
+    "line_244_word_count": 247,
+    "line_246_work_performed": "Work began January 15 with a literature review and gap analysis (documented in PIR-2024-001). From January to March, we developed three candidate wavelet basis functions: Daubechies-4 modified for fixed-point arithmetic, a custom Haar variant with adaptive thresholding, and a biorthogonal spline wavelet optimized for in-place computation. Each was implemented in C on ARM Cortex-M4 evaluation boards and benchmarked for memory usage, computational latency, and reconstruction accuracy. The custom Haar variant achieved 94% reconstruction accuracy within 187KB RAM, meeting our constraint. From April to July, we implemented four EKF gain scheduling strategies and tested each against 12 recorded industrial noise profiles. Strategy 3 (exponentially weighted moving average of innovation covariance) demonstrated stable convergence in 9 of 12 profiles. We modified Strategy 3 with a bounded forgetting factor (lambda between 0.95 and 0.99) which achieved convergence in 11 of 12 profiles. From August to November, we integrated the wavelet preprocessing with the modified EKF and conducted 847 fusion experiments. Final system achieved 93.7% fusion accuracy at 2.5dB SNR on Cortex-M4, exceeding our 92% target. Results were documented in internal technical report TR-2024-SF-Final (November 22, 2024).",
+    "line_246_word_count": 194,
+    "five_question_test": {
+      "q1_uncertainty": true,
+      "q1_evidence": "Sub-3dB SNR fusion on memory-constrained devices had no known solution in published literature. PIR-2024-001 documents gap analysis.",
+      "q2_hypothesis": true,
+      "q2_evidence": "Three specific hypotheses documented in PIR-2024-001. Each tested systematically.",
+      "q3_systematic": true,
+      "q3_evidence": "847 controlled experiments with documented variables. Confluence space with 342 entries.",
+      "q4_advancement": true,
+      "q4_evidence": "Novel wavelet-EKF hybrid achieving 93.7% accuracy at 2.5dB SNR on Cortex-M4. No prior art.",
+      "q5_record": true,
+      "q5_evidence": "Confluence space 'SensorFusion-R&D' (342 entries), lab notebooks, PIR-2024-001, TR-2024-SF-Final."
+    },
+    "personnel": [
+      {"name": "Dr. Anika Patel", "role": "Principal Researcher", "hours_sred": 1200, "hours_total": 1800, "salary": 145000, "is_specified_employee": false},
+      {"name": "James Wu", "role": "Embedded Systems Engineer", "hours_sred": 950, "hours_total": 1800, "salary": 112000, "is_specified_employee": false},
+      {"name": "Fatima Al-Rashidi", "role": "DSP Specialist (Contract)", "hours_sred": 600, "hours_total": 600, "salary": null, "is_specified_employee": false, "is_contractor": true, "contract_value": 72000, "arms_length": true}
+    ]
+  },
+  {
+    "project_id": "P002",
+    "title": "Automated Anomaly Detection in Multi-Tenant Cloud Telemetry Streams",
+    "field_of_science_code": "1.02.01",
+    "field_of_science": "Computer Sciences",
+    "start_date": "2024-03-01",
+    "end_date": "2024-12-31",
+    "status": "ongoing",
+    "keyword_codes": ["2090", "8020"],
+    "eligibility_strength": "MEDIUM",
+    "line_242_scientific_technological_advancement": "This project aimed to develop an anomaly detection system capable of identifying performance degradation patterns across multi-tenant cloud infrastructure where tenant workloads create correlated noise that masks genuine anomalies. Standard statistical methods (Z-score, IQR) and existing ML approaches (isolation forests, autoencoders) evaluated in our preliminary study (documented in feasibility report FR-2024-002) failed to distinguish tenant-induced variability from infrastructure-level anomalies when correlation coefficients exceeded 0.7. The advancement sought was a detection methodology maintaining precision above 85% and recall above 90% in environments with inter-tenant correlation above 0.8.",
+    "line_242_word_count": 102,
+    "line_244_technological_uncertainty": "The primary uncertainty was whether temporal graph neural networks could model the dynamic dependency structure between tenants and infrastructure components with sufficient fidelity to separate correlated tenant noise from genuine anomalies. While GNNs have been applied to static network topologies for anomaly detection, the application to dynamically changing multi-tenant cloud graphs with variable node and edge counts was unexplored in published literature. We conducted a literature review (March 2024, documented in LR-2024-002) confirming no existing approach addressed graphs with more than 500 dynamically changing nodes at sub-minute granularity. A secondary uncertainty was whether the model could be trained on synthetic anomalies and generalize to real-world failure modes it had never seen, given that real cloud failures are rare and heterogeneous. We designed a systematic experimental program involving: synthetic graph generation with controlled correlation parameters, injection of 12 categories of known failure modes at varying intensities, and ablation studies on graph construction strategies.",
+    "line_244_word_count": 157,
+    "line_246_work_performed": "March through May: literature review, feasibility study, and synthetic data generation framework. Generated 2.4M synthetic telemetry snapshots across 847 simulated tenant configurations. June through September: implemented three GNN architectures (GAT, GraphSAGE, temporal GCN) and benchmarked against baseline methods. Temporal GCN showed 78% precision at 0.8 correlation, below our 85% target. October through December: developed a novel attention mechanism weighting edges by temporal stability. Achieved 83% precision and 91% recall at 0.8 correlation. Work is ongoing to close the precision gap. [NOTE: documentation gap exists between June 15 and September 3, 2024 — team lead was on parental leave and lab notebook entries were not maintained during this period].",
+    "line_246_word_count": 122,
+    "five_question_test": {
+      "q1_uncertainty": true,
+      "q1_evidence": "GNNs on dynamic multi-tenant graphs with 500+ nodes at sub-minute granularity — no published approach. LR-2024-002.",
+      "q2_hypothesis": true,
+      "q2_evidence": "Hypothesis that temporal edge attention would separate correlated noise. Documented in FR-2024-002.",
+      "q3_systematic": true,
+      "q3_evidence": "2.4M synthetic snapshots, 3 GNN architectures, ablation studies. BUT 3-month documentation gap.",
+      "q4_advancement": true,
+      "q4_evidence": "Novel temporal attention mechanism. 83% precision at 0.8 correlation. Partial — target not fully met.",
+      "q5_record": false,
+      "q5_evidence": "3-month gap (June 15 to September 3) in lab notebooks. Team lead parental leave. No delegate assigned."
+    },
+    "personnel": [
+      {"name": "Dr. Anika Patel", "role": "Technical Advisor", "hours_sred": 200, "hours_total": 1800, "salary": 145000, "is_specified_employee": false},
+      {"name": "Carlos Mendes", "role": "ML Engineer", "hours_sred": 1400, "hours_total": 1800, "salary": 128000, "is_specified_employee": false},
+      {"name": "Sarah Kim", "role": "Cloud Infrastructure", "hours_sred": 400, "hours_total": 1800, "salary": 105000, "is_specified_employee": false}
+    ]
+  },
+  {
+    "project_id": "P003",
+    "title": "Migration of Legacy REST APIs to GraphQL Federation Architecture",
+    "field_of_science_code": "1.02.01",
+    "field_of_science": "Computer Sciences",
+    "start_date": "2024-02-01",
+    "end_date": "2024-09-30",
+    "status": "completed",
+    "keyword_codes": ["2090"],
+    "eligibility_strength": "INELIGIBLE",
+    "line_242_scientific_technological_advancement": "This project converted 47 legacy REST API endpoints to a unified GraphQL federation gateway using Apollo Federation v2. The goal was to reduce frontend API call volume by 60% and improve developer productivity by providing a single schema across all microservices. We adopted industry best practices from Apollo's published migration guides and the GraphQL Foundation's specification documents.",
+    "line_242_word_count": 55,
+    "line_244_technological_uncertainty": "The main challenge was coordinating schema ownership across 6 development teams and resolving naming conflicts in the federated supergraph. We also needed to ensure backward compatibility with mobile clients still consuming REST endpoints during the transition period. Our approach followed Apollo's published federation migration playbook and we engaged Apollo's professional services team for architecture review.",
+    "line_244_word_count": 55,
+    "line_246_work_performed": "February to April: schema inventory and conflict resolution across 6 teams. May to July: implemented federation gateway, entity resolvers, and REST-to-GraphQL adapter layer. August to September: load testing, performance tuning, and phased rollout. Achieved 58% reduction in frontend API calls. Migration completed on schedule.",
+    "line_246_word_count": 47,
+    "five_question_test": {
+      "q1_uncertainty": false,
+      "q1_evidence": "FAIL: No technological uncertainty. REST-to-GraphQL migration is well-documented standard practice. Apollo publishes migration playbooks. This is a technical problem, not a technological uncertainty.",
+      "q2_hypothesis": false,
+      "q2_evidence": "FAIL: No hypotheses formulated. Team followed vendor's published migration guide step-by-step.",
+      "q3_systematic": false,
+      "q3_evidence": "FAIL: No systematic investigation. Standard software engineering project management, not experimental design.",
+      "q4_advancement": false,
+      "q4_evidence": "FAIL: No technological advancement. Used existing tools (Apollo Federation v2) exactly as documented. Result is business improvement, not technological advancement.",
+      "q5_record": false,
+      "q5_evidence": "FAIL: No experimental records kept. Standard project documentation (Jira tickets, PRs) — not hypothesis/result records."
+    },
+    "personnel": [
+      {"name": "Raj Gupta", "role": "Senior Developer", "hours_sred": 800, "hours_total": 1800, "salary": 118000, "is_specified_employee": true, "ownership_percentage": 15},
+      {"name": "Emily Chen", "role": "Developer", "hours_sred": 600, "hours_total": 1800, "salary": 95000, "is_specified_employee": false},
+      {"name": "DevOps Contractor (TechBridge Ltd.)", "role": "Infrastructure", "hours_sred": 300, "hours_total": 300, "salary": null, "is_specified_employee": false, "is_contractor": true, "contract_value": 45000, "arms_length": true}
+    ]
+  }
+]
