@@ -1,15 +1,24 @@
 import streamlit as st
 import pandas as pd
 from datetime import date, datetime
+from pathlib import Path
+import sys
 
 from engine.scanner import run_scan
 from engine.report import generate_report_text, generate_csv_rows
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from branding import PALETTE, apply_enterprise_theme, powered_by_markdown
 
 st.set_page_config(
     page_title="CPA Practice Inspection Readiness Scanner",
     page_icon="\U0001f4cb",
     layout="wide",
 )
+apply_enterprise_theme()
 
 # --- Run scan (cached) ---
 @st.cache_data
@@ -20,7 +29,7 @@ result = get_scan_results()
 
 # --- Sidebar ---
 st.sidebar.markdown("### \U0001f4cb CPA Practice Inspection\n### Readiness Scanner")
-st.sidebar.caption("Powered by **IAM-Audit** \u2022 Interpretive AI for Accounting & Assurance")
+st.sidebar.caption(powered_by_markdown())
 st.sidebar.divider()
 
 page = st.sidebar.radio(
@@ -47,9 +56,15 @@ inspection_date = datetime.strptime(result.next_inspection_due, "%Y-%m-%d").date
 days_until = (inspection_date - date.today()).days
 if days_until > 0:
     st.sidebar.markdown(f"**Next Inspection:** {result.next_inspection_due}")
-    st.sidebar.markdown(f"**Days Until:** :red[{days_until} days]")
+    st.sidebar.markdown(
+        f"**Days Until:** <span style='color:{PALETTE.status_warning}; font-weight:600;'>{days_until} days</span>",
+        unsafe_allow_html=True,
+    )
 else:
-    st.sidebar.markdown(f"**Inspection:** :red[OVERDUE]")
+    st.sidebar.markdown(
+        f"**Inspection:** <span style='color:{PALETTE.status_critical}; font-weight:700;'>OVERDUE</span>",
+        unsafe_allow_html=True,
+    )
 
 
 # ============================================================
@@ -57,16 +72,23 @@ else:
 # ============================================================
 if page == "\U0001f3e0 Dashboard":
     st.title("\U0001f4cb CPA Practice Inspection Readiness Scanner")
-    st.caption("Powered by IAM-Audit \u2022 Interpretive AI for Accounting & Assurance")
+    st.caption(powered_by_markdown())
 
     # Firm info bar
     col_firm = st.columns(3)
     col_firm[0].markdown(f"**Firm:** {result.firm_name}")
     col_firm[1].markdown(f"**License:** {result.license_number}")
     if days_until > 0:
-        col_firm[2].markdown(f"**Inspection in:** :red[**{days_until} days**] ({result.next_inspection_due})")
+        col_firm[2].markdown(
+            f"**Inspection in:** <span style='color:{PALETTE.status_warning}; font-weight:700;'>{days_until} days</span> "
+            f"({result.next_inspection_due})",
+            unsafe_allow_html=True,
+        )
     else:
-        col_firm[2].markdown("**Inspection:** :red[**OVERDUE**]")
+        col_firm[2].markdown(
+            f"**Inspection:** <span style='color:{PALETTE.status_critical}; font-weight:700;'>OVERDUE</span>",
+            unsafe_allow_html=True,
+        )
 
     st.divider()
 
@@ -77,15 +99,15 @@ if page == "\U0001f3e0 Dashboard":
         # Readiness score
         score = result.readiness_score
         if score >= 80:
-            score_color = "green"
+            score_color = PALETTE.status_success
         elif score >= 60:
-            score_color = "orange"
+            score_color = PALETTE.status_warning
         else:
-            score_color = "red"
+            score_color = PALETTE.status_critical
         st.markdown(
             f"<div style='text-align:center; padding: 20px;'>"
             f"<div style='font-size: 72px; font-weight: bold; color: {score_color};'>{score}%</div>"
-            f"<div style='font-size: 18px; color: #999;'>Readiness Score</div>"
+            f"<div style='font-size: 18px; color: {PALETTE.text_muted};'>Readiness Score</div>"
             f"</div>",
             unsafe_allow_html=True,
         )
@@ -113,13 +135,13 @@ if page == "\U0001f3e0 Dashboard":
         with comp_cols[i]:
             if comp.status == "pass":
                 icon = "\u2705"
-                color = "green"
+                color = PALETTE.status_success
             elif comp.status == "warning":
                 icon = "\u26a0\ufe0f"
-                color = "orange"
+                color = PALETTE.status_warning
             else:
                 icon = "\u274c"
-                color = "red"
+                color = PALETTE.status_critical
 
             st.markdown(
                 f"<div style='text-align:center; padding: 10px; border-radius: 8px; "
@@ -441,13 +463,15 @@ elif page == "\U0001f517 Evidence Graph":
         '  subgraph cluster_docs {',
         '    label="Documents";',
         '    style=dashed;',
-        '    color="#666";',
-        '    fontcolor="#999";',
+        f'    color="{PALETTE.border_soft}";',
+        f'    fontcolor="{PALETTE.text_muted}";',
     ]
 
     for doc in firm_docs_map:
         safe = doc.replace(" ", "_").replace("&", "and")
-        dot_lines.append(f'    {safe} [label="{doc}", fillcolor="#1a1a2e", fontcolor="#e4e6ed"];')
+        dot_lines.append(
+            f'    {safe} [label="{doc}", fillcolor="{PALETTE.surface_blue}", fontcolor="{PALETTE.text_primary}"];'
+        )
 
     dot_lines.append("  }")
     dot_lines.append("")
@@ -455,8 +479,8 @@ elif page == "\U0001f517 Evidence Graph":
     dot_lines.append("  subgraph cluster_reqs {")
     dot_lines.append('    label="Requirements";')
     dot_lines.append('    style=dashed;')
-    dot_lines.append('    color="#666";')
-    dot_lines.append('    fontcolor="#999";')
+    dot_lines.append(f'    color="{PALETTE.border_soft}";')
+    dot_lines.append(f'    fontcolor="{PALETTE.text_muted}";')
 
     all_rules = set()
     for rules in firm_docs_map.values():
@@ -464,9 +488,13 @@ elif page == "\U0001f517 Evidence Graph":
 
     for rule in sorted(all_rules):
         if rule in broken_rules:
-            dot_lines.append(f'    {rule} [label="{rule}", fillcolor="#7f1d1d", fontcolor="#fca5a5"];')
+            dot_lines.append(
+                f'    {rule} [label="{rule}", fillcolor="{PALETTE.status_critical_bg}", fontcolor="{PALETTE.status_critical}"];'
+            )
         else:
-            dot_lines.append(f'    {rule} [label="{rule}", fillcolor="#14532d", fontcolor="#86efac"];')
+            dot_lines.append(
+                f'    {rule} [label="{rule}", fillcolor="{PALETTE.status_success_bg}", fontcolor="{PALETTE.status_success}"];'
+            )
 
     dot_lines.append("  }")
     dot_lines.append("")
@@ -476,9 +504,9 @@ elif page == "\U0001f517 Evidence Graph":
         safe = doc.replace(" ", "_").replace("&", "and")
         for rule in rules:
             if rule in broken_rules:
-                dot_lines.append(f'  {safe} -> {rule} [color="#ef4444", penwidth=2];')
+                dot_lines.append(f'  {safe} -> {rule} [color="{PALETTE.status_critical}", penwidth=2];')
             else:
-                dot_lines.append(f'  {safe} -> {rule} [color="#22c55e"];')
+                dot_lines.append(f'  {safe} -> {rule} [color="{PALETTE.status_success}"];')
 
     dot_lines.append("}")
     dot_source = "\n".join(dot_lines)
@@ -506,8 +534,10 @@ elif page == "\U0001f517 Evidence Graph":
     # Legend
     st.markdown(
         "**Legend:** "
-        ":green[Green] = Evidence chain intact (requirement met) | "
-        ":red[Red] = Evidence chain broken (gap found)"
+        f"<span style='color:{PALETTE.status_success}; font-weight:600;'>Green</span> = Evidence chain intact "
+        f"(requirement met) | "
+        f"<span style='color:{PALETTE.status_critical}; font-weight:600;'>Rose</span> = Evidence chain broken (gap found)",
+        unsafe_allow_html=True,
     )
 
 

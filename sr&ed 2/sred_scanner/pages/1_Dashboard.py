@@ -4,6 +4,12 @@ import pandas as pd
 import sys
 import os
 
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+from branding import PALETTE
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from utils.scoring import (
     calculate_overall_score,
@@ -28,13 +34,13 @@ overall_score, subscores = calculate_overall_score(projects, expenditures, docum
 
 # Determine color
 if overall_score <= 40:
-    score_color = "#FF4B4B"
+    score_color = PALETTE.status_critical
     score_label = "HIGH RISK"
 elif overall_score <= 70:
-    score_color = "#FFA500"
+    score_color = PALETTE.status_warning
     score_label = "MEDIUM RISK"
 else:
-    score_color = "#00CC66"
+    score_color = PALETTE.status_success
     score_label = "LOW RISK"
 
 st.header("Executive Dashboard")
@@ -51,12 +57,12 @@ with col_gauge:
             "axis": {"range": [0, 100], "tickwidth": 1},
             "bar": {"color": score_color},
             "steps": [
-                {"range": [0, 40], "color": "#FFE0E0"},
-                {"range": [40, 70], "color": "#FFF3E0"},
-                {"range": [70, 100], "color": "#E0FFE0"},
+                {"range": [0, 40], "color": PALETTE.status_critical_bg},
+                {"range": [40, 70], "color": PALETTE.status_warning_bg},
+                {"range": [70, 100], "color": PALETTE.status_success_bg},
             ],
             "threshold": {
-                "line": {"color": "black", "width": 4},
+                "line": {"color": PALETTE.deep_blue, "width": 3},
                 "thickness": 0.75,
                 "value": overall_score,
             },

@@ -5,6 +5,12 @@ from datetime import datetime
 import sys
 import os
 
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+from branding import PALETTE
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from utils.data_loader import ensure_data_loaded
 
@@ -24,7 +30,11 @@ st.subheader("Evidence Timeline")
 
 # Build timeline data
 timeline_items = []
-project_colors = {"P001": "#0066CC", "P002": "#00CC66", "P003": "#FF4B4B"}
+project_colors = {
+    "P001": PALETTE.deep_blue,
+    "P002": PALETTE.status_success,
+    "P003": PALETTE.status_critical,
+}
 type_symbols = {
     "project_initiation_record": "diamond",
     "literature_review": "square",
@@ -45,14 +55,14 @@ fig.add_shape(
     type="rect",
     x0="2024-06-15", x1="2024-09-03",
     y0=-0.5, y1=2.5,
-    fillcolor="rgba(255, 75, 75, 0.15)",
-    line=dict(color="red", width=2, dash="dash"),
+    fillcolor="rgba(196, 131, 142, 0.18)",
+    line=dict(color=PALETTE.status_critical, width=2, dash="dash"),
 )
 fig.add_annotation(
     x="2024-07-24", y=2.3,
     text="⚠️ 80-Day Documentation Gap (P002)",
     showarrow=False,
-    font=dict(color="red", size=12, family="Arial Black"),
+    font=dict(color=PALETTE.status_critical, size=12, family="Arial Black"),
 )
 
 project_y = {"P001": 0, "P002": 1, "P003": 2}
@@ -73,16 +83,16 @@ for item in documentation["evidence_items"]:
         continue
 
     symbol = type_symbols.get(item["type"], "circle")
-    color = project_colors.get(pid, "#888888")
+    color = project_colors.get(pid, PALETTE.text_muted)
 
     # Flag items
     flag_text = ""
     if item.get("gap_flag"):
         flag_text = " ⚠️ GAP"
-        color = "#FF4B4B"
+        color = PALETTE.status_critical
     if item.get("flag"):
         flag_text = " ⚠️ FLAG"
-        color = "#FFA500"
+        color = PALETTE.status_warning
 
     fig.add_trace(go.Scatter(
         x=[x_date],

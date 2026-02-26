@@ -3,12 +3,19 @@ import sys
 import os
 from datetime import datetime, timedelta
 
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+from branding import BRAND, apply_enterprise_theme, powered_by_markdown, sred_header_title
+
 st.set_page_config(
-    page_title="IAM-Audit | SR&ED Readiness Scanner",
+    page_title=f"{BRAND.display_name} | SR&ED Readiness Scanner",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+apply_enterprise_theme()
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from utils.data_loader import ensure_data_loaded
@@ -22,8 +29,9 @@ filing_deadline = fiscal_end + timedelta(days=18 * 30)  # ~18 months
 days_remaining = (filing_deadline - datetime.now()).days
 
 with st.sidebar:
-    st.markdown("## 🔍 IAM-Audit")
+    st.markdown(f"## 🔍 {BRAND.display_name}")
     st.markdown("**SR&ED Readiness Scanner**")
+    st.caption(powered_by_markdown())
     st.divider()
     st.markdown(f"**Company:** {client['company_name']}")
     st.markdown(f"**BN:** {client['business_number']}")
@@ -31,7 +39,7 @@ with st.sidebar:
     st.markdown(f"**Type:** {client['corporation_type']}")
     st.markdown(f"**Province:** {client['province']}")
     st.divider()
-    st.markdown(f"**Filing Deadline:** June 30, 2026")
+    st.markdown(f"**Filing Deadline:** {filing_deadline.strftime('%B %d, %Y')}")
     if days_remaining > 180:
         st.success(f"**{days_remaining} days remaining**")
     elif days_remaining > 90:
@@ -46,10 +54,10 @@ with st.sidebar:
         st.error(f"⚠️ Contingency Fee ({preparer['fee_percentage']}%)")
 
 # Main page content
-st.title("🔍 IAM-Audit: SR&ED Claim Readiness Scanner")
+st.title(sred_header_title())
 st.markdown("---")
 st.markdown("""
-Welcome to the **IAM-Audit SR&ED Readiness Scanner**. This tool analyzes SR&ED claims
+Welcome to the **{brand} SR&ED Readiness Scanner**. This tool analyzes SR&ED claims
 against CRA rules and identifies compliance issues before filing.
 
 **Navigate using the sidebar** to explore:
@@ -67,6 +75,7 @@ against CRA rules and identifies compliance issues before filing.
 ---
 **Client:** {company} | **Fiscal Year:** {fy} | **Projects:** {n_proj}
 """.format(
+    brand=BRAND.display_name,
     company=client["company_name"],
     fy=client["fiscal_year_end"][:4],
     n_proj=len(st.session_state.projects),
