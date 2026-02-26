@@ -4,7 +4,7 @@
 
 **THIS APPLICATION HAS NOTHING TO DO WITH CLOUD SECURITY, RBAC, AWS IAM, AZURE AD, OR IDENTITY/ACCESS MANAGEMENT.**
 
-The product name "IAM-Audit" stands for "Interpretable AI with MLIR — Audit." It is a tool for **Canadian CPA (Chartered Professional Accountant) firms** to prepare for their **mandatory practice inspections** conducted by provincial CPA bodies (like CPA Ontario, CPA BC, etc.).
+The product name "Verifiable Accounting" reflects an evidence-first readiness workflow for **Canadian CPA (Chartered Professional Accountant) firms** preparing for **mandatory practice inspections** conducted by provincial CPA bodies (like CPA Ontario, CPA BC, etc.).
 
 **THE DOMAIN IS ACCOUNTING. THE USER IS AN ACCOUNTANT. THE PROBLEM IS PASSING A CPA PRACTICE INSPECTION.**
 
@@ -32,7 +32,7 @@ This is a DEMO with fake but realistic accounting documents. No real compiler ba
 ## Project Structure
 
 ```
-iam-audit-demo/
+verifiable-accounting-demo/
 ├── app.py                          # Main Streamlit app — CPA INSPECTION scanner
 ├── .streamlit/
 │   └── config.toml                 # Dark theme config
@@ -974,7 +974,7 @@ policy:
 
 ### app.py — Main Application
 
-The app title should be: **"CPA Practice Inspection Readiness Scanner"** with subtitle "Powered by IAM-Audit"
+The app title should be: **"CPA Practice Inspection Readiness Scanner"** with subtitle "Powered by Verifiable Accounting"
 
 The Streamlit app should have the following pages/tabs:
 
@@ -1085,7 +1085,7 @@ else:
 - Color code everything: green (pass), orange (warning), red (critical)
 - Make File 3 obviously problematic at a glance
 - The dashboard should feel like a "health check" — immediately clear what needs attention
-- Add the IAM-Audit branding: orange accent color (#f97316)
+- Add the Verifiable Accounting branding: orange accent color (#f97316)
 
 ### Key Demo Flow
 

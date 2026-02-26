@@ -1,7 +1,16 @@
 """Generate inspection readiness report text from scan results."""
 
 from datetime import date
+from pathlib import Path
+import sys
+
 from engine.models import ScanResult
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from branding import powered_by_text
 
 
 def generate_report_text(result: ScanResult) -> str:
@@ -9,7 +18,7 @@ def generate_report_text(result: ScanResult) -> str:
     lines = []
     lines.append("=" * 70)
     lines.append("CPA PRACTICE INSPECTION READINESS REPORT")
-    lines.append("Powered by IAM-Audit - Interpretive AI for Accounting & Assurance")
+    lines.append(powered_by_text().replace(" • ", " - "))
     lines.append("=" * 70)
     lines.append("")
     lines.append(f"Firm:            {result.firm_name}")

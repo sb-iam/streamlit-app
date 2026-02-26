@@ -1,8 +1,8 @@
-# IAM-Audit: SR&ED Claim Readiness Scanner — Streamlit POC Build Spec
+# Verifiable Accounting: SR&ED Claim Readiness Scanner — Streamlit POC Build Spec
 
 **Purpose**: Build a fully functional Streamlit demo application that simulates an AI-powered SR&ED (Scientific Research & Experimental Development) claim readiness scanner. The app ingests dummy client data (pre-loaded), runs it against real CRA rules, and produces a compliance readiness report with risk scores, flagged issues, and remediation guidance.
 
-**Target audience for the demo**: CPAs, SR&ED consultants, and bank controllers evaluating IAM-Audit.
+**Target audience for the demo**: CPAs, SR&ED consultants, and bank controllers evaluating Verifiable Accounting.
 
 **Tech stack**: Python 3.11+, Streamlit, Plotly, pandas. No external APIs. All data is synthetic and embedded.
 
@@ -782,12 +782,12 @@ def calculate_overall_score(projects, expenditures, documentation, form_status):
 ## 6. UI/UX REQUIREMENTS
 
 ### Visual Design
-- **Color scheme**: Dark sidebar (#1E1E2E), white main area, accent color #0066CC (IAM-Audit blue)
+- **Color scheme**: Dark sidebar (#1E1E2E), white main area, accent color #0066CC (Verifiable Accounting blue)
 - **Status badges**: Use st.success, st.warning, st.error for PASS/CAUTION/FAIL
 - **Typography**: Use st.header, st.subheader consistently. No custom CSS needed.
 
 ### Sidebar (persistent across all pages)
-- IAM-Audit logo placeholder (text: "🔍 IAM-Audit")
+- Verifiable Accounting logo placeholder (text: "🔍 Verifiable Accounting")
 - Company: NovaTech Solutions Inc.
 - Fiscal Year: 2024
 - Province: Ontario
@@ -798,7 +798,7 @@ def calculate_overall_score(projects, expenditures, documentation, form_status):
 ### Streamlit Configuration
 ```python
 st.set_page_config(
-    page_title="IAM-Audit | SR&ED Readiness Scanner",
+    page_title="Verifiable Accounting | SR&ED Readiness Scanner",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -931,11 +931,11 @@ When presenting this demo, the story arc is:
 
 1. **All data is synthetic**. Company name, people, projects are fictional. But all CRA rules, line numbers, word limits, ITC rates, YMPE values, and policy references are real and accurate as of January 2025.
 
-2. **No AI/LLM calls in the POC**. The "scanning" is rule-based logic comparing data fields against CRA requirements. The demo simulates what IAM-Audit's compiler-based analysis would produce.
+2. **No AI/LLM calls in the POC**. The "scanning" is rule-based logic comparing data fields against CRA requirements. The demo simulates what Verifiable Accounting's compiler-based analysis would produce.
 
 3. **The deliberate errors are the product**. The value is in the scanner catching things a human might miss: the ineligible project that "looks like" R&D, the office supplies buried in a materials list, the contract missing an SR&ED clause, the 3-month documentation gap.
 
-4. **Every flag must cite a specific CRA source**: policy name, ITA section, or form line number. This is what differentiates IAM-Audit from generic checklist tools.
+4. **Every flag must cite a specific CRA source**: policy name, ITA section, or form line number. This is what differentiates Verifiable Accounting from generic checklist tools.
 
 5. **The ITC calculator should handle province switching** even though the client is in Ontario. This demonstrates the tool's multi-jurisdictional capability for the demo.
 

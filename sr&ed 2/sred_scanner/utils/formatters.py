@@ -34,7 +34,7 @@ def status_badge(status):
 def severity_color(severity):
     """Return a color string for a severity level."""
     return {
-        "HIGH": "#FF4B4B",
-        "MEDIUM": "#FFA500",
-        "LOW": "#FFD700",
+        "HIGH": "#C4838E",
+        "MEDIUM": "#C7A56A",
+        "LOW": "#8FAE86",
     }.get(severity, "#888888")

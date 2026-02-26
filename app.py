@@ -8,6 +8,13 @@ from pathlib import Path
 
 import streamlit as st
 
+from branding import (
+    BRAND,
+    apply_enterprise_theme,
+    powered_by_markdown,
+    sred_header_title,
+)
+
 
 BASE_DIR = Path(__file__).resolve().parent
 CPA_DIR = BASE_DIR / "cpa-inspection-2 2"
@@ -68,11 +75,11 @@ def _run_script(script: Path, module_name: str, sys_paths: list[Path], patch_pag
 
 def _render_sred_overview():
     client = st.session_state.client_profile
-    st.title("🔍 IAM-Audit: SR&ED Claim Readiness Scanner")
+    st.title(sred_header_title())
     st.markdown("---")
     st.markdown(
-        """
-Welcome to the **IAM-Audit SR&ED Readiness Scanner**. This tool analyzes SR&ED claims
+        f"""
+Welcome to the **{BRAND.display_name} SR&ED Readiness Scanner**. This tool analyzes SR&ED claims
 against CRA rules and identifies compliance issues before filing.
 
 Use the SR&ED section selector in the sidebar to explore:
@@ -105,8 +112,9 @@ def _render_sred_sidebar_and_get_page() -> str:
     days_remaining = (filing_deadline - datetime.now()).days
 
     with st.sidebar:
-        st.markdown("## 🔍 IAM-Audit")
+        st.markdown(f"## 🔍 {BRAND.display_name}")
         st.markdown("**SR&ED Readiness Scanner**")
+        st.caption(powered_by_markdown())
         st.divider()
         st.markdown(f"**Company:** {client['company_name']}")
         st.markdown(f"**BN:** {client['business_number']}")
@@ -158,14 +166,16 @@ def _render_cpa():
 
 def main():
     st.set_page_config(
-        page_title="IAM-Audit Unified Scanner",
+        page_title=f"{BRAND.display_name} Unified Scanner",
         page_icon="🧭",
         layout="wide",
         initial_sidebar_state="expanded",
     )
+    apply_enterprise_theme()
 
     with st.sidebar:
-        st.markdown("## 🧭 IAM-Audit Suite")
+        st.markdown(f"## 🧭 {BRAND.display_name} Suite")
+        st.caption(powered_by_markdown())
         mode = st.radio(
             "Functionality",
             [
